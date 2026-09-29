@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#020306">
+<title>GK MINING — Digital Mining Hub</title>
+<style>
+:root{--bg:#020306;--panel:#070a10;--panel2:#0a0f16;--line:#18222e;--text:#f5f8fb;--muted:#718091;--cyan:#45e0ff;--blue:#2979ff;--green:#46e6a4}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#020306;color:var(--text);font-family:Arial,Helvetica,sans-serif;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;z-index:-4;background:radial-gradient(circle at 78% 12%,rgba(37,150,255,.16),transparent 25%),radial-gradient(circle at 10% 75%,rgba(0,217,255,.08),transparent 25%),#020306}
+body:after{content:"";position:fixed;inset:0;z-index:-3;opacity:.18;background-image:linear-gradient(rgba(70,224,255,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(70,224,255,.08) 1px,transparent 1px);background-size:55px 55px;mask-image:linear-gradient(to bottom,#000,transparent 85%)}
+a{text-decoration:none;color:inherit}button,input{font:inherit}
+.nav{height:74px;display:flex;align-items:center;justify-content:space-between;padding:0 6%;border-bottom:1px solid rgba(255,255,255,.06);background:rgba(2,3,6,.78);backdrop-filter:blur(18px);position:sticky;top:0;z-index:50}
+.logo{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:2px}.logo-box{width:34px;height:34px;border:1px solid #35c8ef;border-radius:10px;display:grid;place-items:center;color:#70e8ff;font-size:11px;box-shadow:0 0 22px rgba(54,210,255,.14)}
+.navlinks{display:flex;gap:28px;color:#758494;font-size:11px}.navlinks a:hover{color:#fff}.navbtn{background:#e8fbff;color:#020609;border-radius:9px;padding:11px 15px;font-size:10px;font-weight:900}
+.hero{min-height:700px;max-width:1180px;margin:auto;padding:85px 6%;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:35px}
+.kicker{display:inline-flex;align-items:center;gap:8px;border:1px solid #173949;background:#071018;border-radius:30px;padding:8px 12px;color:#62dfff;font-size:9px;font-weight:800;letter-spacing:1.5px}.kicker i{width:6px;height:6px;border-radius:50%;background:#47e69d;box-shadow:0 0 12px #47e69d}
+.hero h1{font-size:clamp(47px,7vw,86px);line-height:.91;letter-spacing:-5px;margin:25px 0 20px}.hero h1 span{color:#57ddff;text-shadow:0 0 35px rgba(65,215,255,.2)}.hero p{max-width:590px;color:#758595;line-height:1.8;font-size:14px}
+.actions{display:flex;gap:10px;margin:30px 0}.btn{border:0;cursor:pointer;padding:13px 18px;border-radius:9px;font-size:10px;font-weight:900;letter-spacing:.4px}.primary{background:#dffaff;color:#001016;box-shadow:0 0 35px rgba(62,214,255,.12)}.secondary{background:#070d13;border:1px solid #1b3342;color:#b8cad4}
+.trust{display:flex;gap:18px;flex-wrap:wrap;color:#405766;font-size:9px;letter-spacing:1px}
+.visual{height:450px;position:relative;display:grid;place-items:center}.planet{width:180px;height:180px;border-radius:50%;background:radial-gradient(circle at 30% 25%,#27495b,#091119 48%,#020407 73%);border:1px solid #39ccef;box-shadow:0 0 70px rgba(38,205,255,.18),inset -25px -20px 50px rgba(0,0,0,.8);display:grid;place-items:center;z-index:2}.planet strong{font-size:40px;letter-spacing:-3px;color:#b8f5ff}.planet small{font-size:8px;letter-spacing:3px;color:#5da1b4;margin-top:-55px}
+.orbit{position:absolute;border:1px solid rgba(74,221,255,.35);border-radius:50%;width:360px;height:145px;transform:rotate(-18deg);box-shadow:0 0 35px rgba(54,210,255,.06)}.orbit.o2{width:420px;height:180px;transform:rotate(47deg);border-color:rgba(61,130,255,.25)}.orbit.o3{width:285px;height:110px;transform:rotate(88deg);border-color:rgba(67,228,187,.18)}
+.badge{position:absolute;background:rgba(5,12,18,.9);border:1px solid #193748;border-radius:10px;padding:11px 13px;color:#607889;font-size:8px;letter-spacing:1px;backdrop-filter:blur(12px)}.badge b{display:block;color:#5fe1ff;margin-top:5px;font-size:11px}.b1{right:2%;top:20%}.b2{left:2%;bottom:18%}
+.section{max-width:1180px;margin:auto;padding:85px 6%}.section-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:25px}.eyebrow{font-size:9px;letter-spacing:2px;color:#52dfff;font-weight:900}.section h2{font-size:33px;letter-spacing:-1.5px;margin:7px 0}.section-head>p{font-size:9px;color:#4d6473;letter-spacing:1px}
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.plan{position:relative;padding:27px;border:1px solid #142936;background:linear-gradient(145deg,#070c12,#030609);border-radius:17px;transition:.25s}.plan:hover{transform:translateY(-6px);border-color:#28708a;box-shadow:0 25px 70px rgba(0,180,255,.06)}.plan.featured{border-color:#2b91b4;box-shadow:0 0 45px rgba(35,193,241,.07)}.popular{position:absolute;right:17px;top:17px;background:#74e5ff;color:#001016;padding:5px 8px;border-radius:20px;font-size:7px;font-weight:900}.plan-top{display:flex;justify-content:space-between;color:#4d7385;font-size:9px;letter-spacing:2px}.plan-price{font-size:52px;letter-spacing:-4px;margin:30px 0 0}.usdt{font-size:9px;color:#4bdcff}.desc{height:40px;color:#5e7383;font-size:11px;line-height:1.5}.plan ul{list-style:none;padding:0;margin:22px 0;border-top:1px solid #10222d}.plan li{padding:10px 0;border-bottom:1px solid #0e1b24;color:#8799a6;font-size:10px}.plan li:before{content:"✓";color:#48dfa0;margin-right:8px}.plan button{width:100%;display:flex;justify-content:space-between;background:#09131b;border:1px solid #1a3948;color:#d8f5fc;padding:12px;border-radius:8px;font-size:9px;font-weight:900;cursor:pointer}.plan button:hover{background:#0d2531}
+.process{padding-top:25px}.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.step{border:1px solid #132b39;background:#060b11;border-radius:14px;padding:25px}.step b{color:#4edcff;font-size:9px}.step h3{font-size:15px;margin:22px 0 6px}.step p{color:#607687;font-size:10px;line-height:1.7}
+footer{border-top:1px solid #101e27;padding:30px 6%;display:flex;justify-content:space-between;color:#425966;font-size:9px;letter-spacing:1px}.footer-logo{color:#80e6ff;font-weight:900}
+
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.78);backdrop-filter:blur(12px);display:none;align-items:center;justify-content:center;padding:20px;z-index:100}.modal.open{display:flex}.modal-card{width:min(560px,100%);max-height:90vh;overflow:auto;background:linear-gradient(145deg,#0a1119,#03070b);border:1px solid #245066;border-radius:20px;box-shadow:0 30px 100px rgba(0,0,0,.7);padding:27px;position:relative}.close{position:absolute;right:17px;top:15px;border:1px solid #1b3443;background:#071018;color:#b9cbd4;width:34px;height:34px;border-radius:50%;cursor:pointer}.modal h2{font-size:27px;margin:8px 0}.modal p{color:#6e8190;font-size:11px;line-height:1.7}.form-row{display:grid;gap:13px;margin-top:18px}.field label{display:block;color:#66808e;font-size:9px;letter-spacing:1px}.field input{width:100%;margin-top:7px;padding:13px;background:#020609;border:1px solid #183342;border-radius:8px;color:#fff;outline:0}.field input:focus{border-color:#45dfff}.wallet{margin-top:18px;padding:15px;border:1px solid #183a49;background:#03080c;border-radius:12px}.wallet small{color:#4f7787;font-size:8px;letter-spacing:1px}.addr{display:flex;gap:7px;margin-top:9px}.addr code{flex:1;overflow:auto;white-space:nowrap;padding:11px;background:#071119;border-radius:7px;color:#bfeef8;font-size:9px}.copy{border:0;background:#dffaff;color:#001016;border-radius:7px;padding:0 12px;font-size:8px;font-weight:900;cursor:pointer}.warning{color:#bb9450;font-size:9px;margin-top:9px}.status{min-height:20px;color:#59dcff;font-size:9px;margin-top:10px}.plan-summary{display:flex;justify-content:space-between;align-items:center;border:1px solid #193746;background:#061019;border-radius:11px;padding:15px;margin-top:16px}.plan-summary b{font-size:20px}.plan-summary span{color:#55ddff;font-size:9px}.risk{border:1px solid #45371f;background:#0d0a05;border-radius:14px;padding:22px;display:flex;gap:15px}.risk .icon{width:30px;height:30px;border:1px solid #806335;color:#e5bd6d;border-radius:8px;display:grid;place-items:center;flex:none}.risk h3{margin:2px 0 7px;font-size:15px}.risk p{margin:0;color:#7d725e;font-size:10px;line-height:1.7}
+@media(max-width:800px){.nav{padding:0 5%}.navlinks{display:none}.hero{grid-template-columns:1fr;padding:65px 5%;min-height:auto}.visual{height:330px;margin-top:10px}.orbit{width:290px;height:120px}.orbit.o2{width:330px;height:145px}.planet{width:145px;height:145px}.hero h1{letter-spacing:-3px}.section{padding:60px 5%}.plans,.steps{grid-template-columns:1fr}.section-head{align-items:flex-start;flex-direction:column}.section-head>p{margin-top:0}.trust{gap:10px}.b1{right:0}.b2{left:0}.modal-card{padding:23px}footer{flex-direction:column;gap:8px}}
+</style>
+</head>
+<body>
+<nav class="nav">
+<a class="logo" href="#"><span class="logo-box">GK</span> MINING</a>
+<div class="navlinks"><a href="#plans">PLANS</a><a href="#process">PROCESS</a><a href="#risk">RISK</a></div>
+<a class="navbtn" href="#plans">START NOW ↗</a>
+</nav>
+
+<header class="hero">
+<div>
+<div class="kicker"><i></i> GK MINING HUB · ONLINE</div>
+<h1>THE NEXT<br><span>MINING</span> EXPERIENCE.</h1>
+<p>Choose a plan, review the BEP20 payment details and submit your transaction reference for verification — all through one clean, premium interface.</p>
+<div class="actions"><button class="btn primary" onclick="openRegister()">CREATE ACCOUNT →</button><a class="btn secondary" href="#plans">VIEW PLANS</a></div>
+<div class="trust"><span>◈ BEP20</span><span>◈ TXID REVIEW</span><span>◈ MOBILE READY</span></div>
+</div>
+<div class="visual">
+<div class="orbit"></div><div class="orbit o2"></div><div class="orbit o3"></div>
+<div class="planet"><strong>GK</strong><small>MINING</small></div>
+<div class="badge b1">NETWORK<b>BEP20</b></div><div class="badge b2">PLANS<b>03 AVAILABLE</b></div>
+</div>
+</header>
+
+<section id="plans" class="section">
+<div class="section-head"><div><div class="eyebrow">01 / MEMBERSHIP PLANS</div><h2>CHOOSE YOUR PLAN</h2></div><p>USDT · BNB SMART CHAIN</p></div>
+<div class="plans">
+<article class="plan"><div class="plan-top"><span>STARTER</span><span>01</span></div><div class="plan-price">$25</div><div class="usdt">USDT</div><p class="desc">Entry plan for exploring the platform.</p><ul><li>Plan activation review</li><li>BEP20 payment flow</li><li>TxID submission</li></ul><button onclick="openPlan(25,'STARTER')">SELECT PLAN <b>→</b></button></article>
+<article class="plan featured"><div class="popular">FEATURED</div><div class="plan-top"><span>GROWTH</span><span>02</span></div><div class="plan-price">$50</div><div class="usdt">USDT</div><p class="desc">Growth-level plan for registered users.</p><ul><li>Plan activation review</li><li>BEP20 payment flow</li><li>TxID submission</li></ul><button onclick="openPlan(50,'GROWTH')">SELECT PLAN <b>→</b></button></article>
+<article class="plan"><div class="plan-top"><span>PRO</span><span>03</span></div><div class="plan-price">$100</div><div class="usdt">USDT</div><p class="desc">Higher-value plan option for users.</p><ul><li>Plan activation review</li><li>BEP20 payment flow</li><li>TxID submission</li></ul><button onclick="openPlan(100,'PRO')">SELECT PLAN <b>→</b></button></article>
+</div>
+</section>
+
+<section id="process" class="section process"><div class="section-head"><div><div class="eyebrow">02 / PROCESS</div><h2>THREE SIMPLE STEPS</h2></div></div>
+<div class="steps"><div class="step"><b>01</b><h3>REGISTER</h3><p>Create an account with your name, mobile number and password.</p></div><div class="step"><b>02</b><h3>SELECT</h3><p>Choose the $25, $50 or $100 plan and review the payment screen.</p></div><div class="step"><b>03</b><h3>VERIFY</h3><p>Send the selected amount on BEP20 and submit your transaction hash.</p></div></div></section>
+
+<section id="risk" class="section"><div class="risk"><div class="icon">!</div><div><div class="eyebrow">IMPORTANT DISCLOSURE</div><h3>Digital assets involve substantial risk.</h3><p>Payment does not guarantee profit, mining output, or any fixed return. Use only funds you can afford to lose. Verify the wallet address and network before sending. Operators should obtain appropriate legal and regulatory advice before accepting customer funds or offering financial products.</p></div></div></section>
+
+<footer><div class="footer-logo">GK MINING</div><span>NEON DIGITAL HUB · © 2026</span></footer>
+
+<div id="modal" class="modal" onclick="outside(event)">
+<div class="modal-card">
+<button class="close" onclick="closeModal()">×</button>
+<div id="modalContent"></div>
+</div></div>
+
+<script>
+const WALLET="0x02e63D12a34A533c54a8e022d83ECfdbb988A322";
+let selectedPlan=null;
+function openRegister(){
+document.getElementById("modalContent").innerHTML=`<div class="eyebrow">CREATE ACCOUNT</div><h2>Enter the GK Mining Hub.</h2><p>Register first, then select a plan. This front-end prototype stores account details locally on this device.</p>
+<div class="form-row"><div class="field"><label>FULL NAME</label><input id="mname" placeholder="Your name"></div><div class="field"><label>MOBILE NUMBER</label><input id="mmobile" type="tel" placeholder="+91 XXXXX XXXXX"></div><div class="field"><label>PASSWORD</label><input id="mpass" type="password" placeholder="Create password"></div><button class="btn primary" onclick="register()">CREATE ACCOUNT →</button><div id="mstatus" class="status"></div></div>`;
+openModal();
+}
+function register(){
+const n=document.getElementById("mname").value.trim(),m=document.getElementById("mmobile").value.trim(),p=document.getElementById("mpass").value;
+if(!n||!m||!p){document.getElementById("mstatus").textContent="Please complete all fields.";return}
+localStorage.setItem("gkUser",JSON.stringify({name:n,mobile:m}));
+document.getElementById("mstatus").textContent="Account details saved. You can now select a plan.";
+setTimeout(()=>openPlansFromModal(),700);
+}
+function openPlansFromModal(){
+document.getElementById("modalContent").innerHTML=`<div class="eyebrow">SELECT A PLAN</div><h2>Choose your plan.</h2><p>Select an amount to continue to the BEP20 payment screen.</p>
+<div class="plan-summary"><div><span>STARTER</span><b>$25</b></div><button class="btn primary" onclick="openPlan(25,'STARTER')">SELECT →</button></div>
+<div class="plan-summary"><div><span>GROWTH</span><b>$50</b></div><button class="btn primary" onclick="openPlan(50,'GROWTH')">SELECT →</button></div>
+<div class="plan-summary"><div><span>PRO</span><b>$100</b></div><button class="btn primary" onclick="openPlan(100,'PRO')">SELECT →</button></div>`;
+}
+function openPlan(amount,name){
+selectedPlan={amount,name};
+document.getElementById("modalContent").innerHTML=`<div class="eyebrow">PAYMENT · ${name}</div><h2>$${amount} ${name}</h2><p>Send only the selected amount of USDT on the BNB Smart Chain (BEP20) network.</p>
+<div class="wallet"><small>BEFORE SENDING · VERIFY NETWORK + ADDRESS</small><div class="addr"><code>${WALLET}</code><button class="copy" onclick="copyWallet()">COPY</button></div><div class="warning">⚠ Never send on another network. Blockchain transfers may not be reversible.</div></div>
+<div class="form-row"><div class="field"><label>TRANSACTION HASH / TXID</label><input id="txid" placeholder="Paste transaction hash"></div><button class="btn primary" onclick="submitTx()">SUBMIT FOR VERIFICATION →</button><div id="pstatus" class="status"></div></div>`;
+openModal();
+}
+async function copyWallet(){
+try{await navigator.clipboard.writeText(WALLET);document.getElementById("pstatus").textContent="BEP20 wallet address copied."}catch(e){document.getElementById("pstatus").textContent="Copy unavailable. Please copy the address manually."}
+}
+function submitTx(){
+const tx=document.getElementById("txid").value.trim();
+if(!tx){document.getElementById("pstatus").textContent="Please enter the transaction hash / TxID.";return}
+localStorage.setItem("gkPayment",JSON.stringify({plan:selectedPlan,txid:tx,status:"Pending verification"}));
+document.getElementById("pstatus").textContent="Submitted · Pending verification.";
+}
+function openModal(){document.getElementById("modal").classList.add("open");document.body.style.overflow="hidden"}
+function closeModal(){document.getElementById("modal").classList.remove("open");document.body.style.overflow=""}
+function outside(e){if(e.target.id==="modal")closeModal()}
+</script>
+</body></html>
