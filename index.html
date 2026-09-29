@@ -1,105 +1,139 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#07111d">
-<title>GK Mining — Digital Mining Hub</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GK Mining | Digital Mining Platform</title>
+<meta name="description" content="GK Mining — a modern digital mining platform website.">
+<style>
+:root{--bg:#070707;--card:#111;--gold:#f5c542;--gold2:#ffe28a;--text:#f7f7f7;--muted:#aaa;--line:#272727}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+a{text-decoration:none;color:inherit}
+.container{width:min(1120px,92%);margin:auto}
+nav{position:sticky;top:0;z-index:20;background:rgba(7,7,7,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.navin{height:72px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:25px;font-weight:800;letter-spacing:1px}.logo span{color:var(--gold)}
+.links{display:flex;gap:25px;color:#ddd;font-size:14px}
+.btn{display:inline-block;padding:12px 20px;border-radius:10px;background:var(--gold);color:#090909;font-weight:800;border:0;cursor:pointer}
+.btn.outline{background:transparent;color:var(--gold);border:1px solid var(--gold)}
+.hero{padding:100px 0 80px;background:radial-gradient(circle at 75% 25%,#3b2b05 0,transparent 32%),linear-gradient(180deg,#0c0c0c,#070707)}
+.hero h1{font-size:clamp(42px,7vw,76px);line-height:1.02;max-width:800px}.hero h1 span{color:var(--gold)}
+.hero p{max-width:650px;color:#bbb;font-size:18px;margin:22px 0 30px}
+.actions{display:flex;gap:12px;flex-wrap:wrap}
+.badge{display:inline-block;color:var(--gold2);border:1px solid #5d4a16;background:#181306;padding:7px 12px;border-radius:999px;font-size:12px;margin-bottom:18px}
+section{padding:75px 0}.title{text-align:center;margin-bottom:42px}.title h2{font-size:38px}.title p{color:var(--muted);margin-top:8px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{background:linear-gradient(145deg,#151515,#0e0e0e);border:1px solid var(--line);border-radius:18px;padding:26px}
+.card h3{font-size:22px;margin-bottom:8px}.card p,.card li{color:#aaa;font-size:14px}.card ul{padding-left:18px;margin:15px 0}.price{font-size:30px;font-weight:800;color:var(--gold);margin:12px 0}
+.feature{display:flex;gap:15px}.icon{width:42px;height:42px;border-radius:12px;background:#241c08;color:var(--gold);display:grid;place-items:center;font-weight:900;flex:none}
+.steps{counter-reset:step}.step{position:relative;padding-left:65px;margin-bottom:25px}.step:before{counter-increment:step;content:counter(step);position:absolute;left:0;top:0;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--gold);color:#000;font-weight:900}
+.notice{border:1px solid #4b3c13;background:#171205;padding:20px;border-radius:15px;color:#d8ca9c;font-size:14px}
+.faq details{border-bottom:1px solid var(--line);padding:18px 0}.faq summary{cursor:pointer;font-weight:700}.faq p{color:#aaa;margin-top:10px}
+footer{border-top:1px solid var(--line);padding:35px 0;color:#888;font-size:13px}
+@media(max-width:800px){.links{display:none}.grid{grid-template-columns:1fr}.hero{padding:75px 0 60px}section{padding:55px 0}.title h2{font-size:30px}}
+
+.logo-mark{display:inline-grid;place-items:center;width:38px;height:38px;border:2px solid var(--gold);border-radius:50%;margin-right:8px;font-size:13px;color:var(--gold);font-weight:900;vertical-align:middle}
+.auth{min-height:calc(100vh - 72px);display:grid;place-items:center;padding:50px 0;background:radial-gradient(circle at 50% 0,#332505 0,transparent 38%),#070707}
+.authbox{width:min(460px,94%);background:#111;border:1px solid #2b2b2b;border-radius:20px;padding:32px;box-shadow:0 20px 70px rgba(0,0,0,.4)}
+.authbox h1{font-size:30px;margin-bottom:7px}.authbox p{color:#999;margin-bottom:24px}
+.field{margin:14px 0}.field label{display:block;color:#bbb;font-size:13px;margin-bottom:7px}.field input{width:100%;padding:13px 14px;border-radius:10px;border:1px solid #333;background:#090909;color:#fff;outline:none}.field input:focus{border-color:var(--gold)}
+.authbox .btn{width:100%;text-align:center;margin-top:8px}.switch{margin-top:18px;text-align:center;color:#999;font-size:13px}.switch a{color:var(--gold)}
+.dash{padding:50px 0;background:#080808;min-height:calc(100vh - 72px)}.dashhead{display:flex;justify-content:space-between;align-items:center;gap:20px;margin-bottom:28px}.dashhead h1{font-size:34px}.dashhead p{color:#888}
+.statgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:25px}.stat{background:#111;border:1px solid #282828;border-radius:16px;padding:20px}.stat small{color:#888}.stat strong{display:block;font-size:25px;color:var(--gold);margin-top:5px}
+.table{overflow:auto;background:#111;border:1px solid #282828;border-radius:16px}.table table{width:100%;border-collapse:collapse;min-width:650px}.table th,.table td{text-align:left;padding:16px;border-bottom:1px solid #252525;font-size:13px}.table th{color:#888;font-weight:600}.status{display:inline-block;padding:5px 9px;border-radius:99px;background:#211b08;color:var(--gold);font-size:11px}
+@media(max-width:800px){.statgrid{grid-template-columns:repeat(2,1fr)}.dashhead{align-items:flex-start;flex-direction:column}}
+
+</style>
 </head>
 <body>
-<div class="ambient ambient-a"></div><div class="ambient ambient-b"></div>
+<nav><div class="container navin">
+<a class="logo" href="#home"><span class="logo-mark">GK</span> <span>MINING</span></a>
+<div class="links"><a href="#plans">Plans</a><a href="#how">How It Works</a><a href="#about">About</a><a href="#faq">FAQ</a><a href="#contact">Contact</a></div>
+<div style="display:flex;gap:8px;align-items:center"><a class="btn outline" href="#login">Login</a><a class="btn" href="#register">Register</a></div>
+</div></nav>
 
-<nav class="nav">
-  <a class="logo" href="#"><span class="logo-mark">GK</span><span>MINING</span></a>
-  <div class="nav-links"><a href="#plans">Plans</a><a href="#how">How it works</a><a href="#risk">Risk</a></div>
-  <a class="nav-cta" href="#register">Get Started <span>↗</span></a>
-</nav>
+<header class="hero" id="home"><div class="container">
+<div class="badge">DIGITAL MINING PLATFORM</div>
+<h1>Build your digital future with <span>GK Mining.</span></h1>
+<p>A clean, modern platform for presenting your digital-mining services, plans and customer information in one place.</p>
+<div class="actions"><a class="btn" href="#plans">View Plans</a><a class="btn outline" href="#how">How It Works</a></div>
+</div></header>
 
-<header class="hero">
-  <div class="hero-copy">
-    <div class="pill"><i></i> DIGITAL MINING HUB</div>
-    <h1>Build your digital<br><em>mining journey.</em></h1>
-    <p>Choose a plan, complete your payment on BNB Smart Chain, and submit your transaction reference for verification.</p>
-    <div class="hero-actions"><a class="primary" href="#plans">Explore plans <span>→</span></a><a class="ghost" href="#how">How it works</a></div>
-    <div class="trust-row"><span>✓ BEP20 payments</span><span>✓ Transaction verification</span><span>✓ Mobile friendly</span></div>
-  </div>
-  <div class="hero-card">
-    <div class="card-top"><span>GK MINING</span><b>LIVE PLATFORM</b></div>
-    <div class="orb"><div class="orb-core">GK</div></div>
-    <div class="hero-metrics"><div><small>Plans</small><strong>03</strong></div><div><small>Network</small><strong>BEP20</strong></div><div><small>Status</small><strong>Open</strong></div></div>
-  </div>
-</header>
+<section id="plans"><div class="container">
+<div class="title"><h2>Mining Plans</h2><p>Example layout — replace these with your verified plans, fees and terms.</p></div>
+<div class="grid">
+<div class="card"><h3>Starter</h3><div class="price">₹1,000+</div><p>For customers starting with a smaller allocation.</p><ul><li>Plan duration: Add here</li><li>Service fee: Add here</li><li>Mining details: Add here</li></ul><a class="btn" href="#contact">Enquire</a></div>
+<div class="card"><h3>Growth</h3><div class="price">₹5,000+</div><p>For customers seeking a larger mining allocation.</p><ul><li>Plan duration: Add here</li><li>Service fee: Add here</li><li>Mining details: Add here</li></ul><a class="btn" href="#contact">Enquire</a></div>
+<div class="card"><h3>Business</h3><div class="price">₹25,000+</div><p>For larger allocations and business customers.</p><ul><li>Plan duration: Add here</li><li>Service fee: Add here</li><li>Mining details: Add here</li></ul><a class="btn" href="#contact">Enquire</a></div>
+</div>
+</div></section>
 
-<section id="plans" class="section">
-  <div class="section-title"><div><div class="eyebrow">MEMBERSHIP PLANS</div><h2>Choose your plan</h2></div><p>Simple options. Clear payment details.</p></div>
-  <div class="plans">
-    <article class="plan">
-      <div class="plan-head"><span class="tag">STARTER</span><span class="dot"></span></div>
-      <div class="price"><b>$25</b><small>USDT</small></div><p class="plan-desc">A starting option for exploring the platform.</p>
-      <ul><li>Plan activation review</li><li>BEP20 payment flow</li><li>Transaction reference</li></ul>
-      <button onclick="choose(25)" class="plan-btn">Select Starter <span>→</span></button>
-    </article>
-    <article class="plan featured">
-      <div class="popular">POPULAR</div>
-      <div class="plan-head"><span class="tag">GROWTH</span><span class="dot"></span></div>
-      <div class="price"><b>$50</b><small>USDT</small></div><p class="plan-desc">A larger plan option for registered users.</p>
-      <ul><li>Plan activation review</li><li>BEP20 payment flow</li><li>Transaction reference</li></ul>
-      <button onclick="choose(50)" class="plan-btn">Select Growth <span>→</span></button>
-    </article>
-    <article class="plan">
-      <div class="plan-head"><span class="tag">PRO</span><span class="dot"></span></div>
-      <div class="price"><b>$100</b><small>USDT</small></div><p class="plan-desc">A higher-value plan option for users.</p>
-      <ul><li>Plan activation review</li><li>BEP20 payment flow</li><li>Transaction reference</li></ul>
-      <button onclick="choose(100)" class="plan-btn">Select Pro <span>→</span></button>
-    </article>
-  </div>
-</section>
+<section id="how"><div class="container"><div class="title"><h2>How It Works</h2><p>Keep the customer journey simple and transparent.</p></div>
+<div class="grid">
+<div class="card feature"><div class="icon">1</div><div><h3>Create Account</h3><p>Register and complete the required verification.</p></div></div>
+<div class="card feature"><div class="icon">2</div><div><h3>Select a Plan</h3><p>Review the plan terms, fees, duration and risks before proceeding.</p></div></div>
+<div class="card feature"><div class="icon">3</div><div><h3>Track Activity</h3><p>Use your account dashboard to view relevant activity and records.</p></div></div>
+</div></div></section>
 
-<section id="register" class="section register-wrap">
-  <div class="register-card">
-    <div class="register-intro"><div class="eyebrow">CREATE ACCOUNT</div><h2>Start with your<br>mobile number.</h2><p>Register your details first, then select a plan and submit your payment reference.</p><div class="mini-note">🔒 Your form details stay on this device in this front-end version.</div></div>
-    <div class="form">
-      <label>Full name<input id="name" placeholder="Enter your name"></label>
-      <label>Mobile number<input id="mobile" type="tel" placeholder="+91 XXXXX XXXXX"></label>
-      <label>Password<input id="password" type="password" placeholder="Create a password"></label>
-      <button class="primary full" onclick="register()">Create account <span>→</span></button>
-      <div id="regMsg" class="msg"></div>
-    </div>
-  </div>
-</section>
+<section id="about"><div class="container"><div class="title"><h2>About GK Mining</h2><p>Professional presentation for your brand.</p></div>
+<div class="card"><p>GK Mining is presented as a digital-mining services platform. Add your company's legal name, registration information, operating model, mining infrastructure details and customer-support information here.</p><br><div class="notice"><strong>Risk disclosure:</strong> Digital-asset and mining activities can involve substantial risk. Do not describe returns as guaranteed. Clearly disclose fees, risks, withdrawal conditions, service terms and applicable legal requirements.</div></div>
+</div></section>
 
-<section id="payment" class="section payment-section hidden">
-  <div class="payment-card">
-    <div class="section-title compact"><div><div class="eyebrow">SECURE PAYMENT FLOW</div><h2 id="selectedTitle">$25 Starter</h2></div><span class="network">BNB SMART CHAIN · BEP20</span></div>
-    <div class="payment-grid">
-      <div class="amount-box"><small>SELECTED AMOUNT</small><strong id="amount">$25</strong><span>USDT</span></div>
-      <div class="wallet-box"><div class="wallet-label">SEND USDT TO THIS BEP20 ADDRESS</div><div class="address"><code id="wallet">0x02e63D12a34A533c54a8e022d83ECfdbb988A322</code><button onclick="copyWallet()">COPY</button></div><div class="warning">⚠ Send only on the BEP20 / BNB Smart Chain network. Check the address before confirming.</div></div>
-    </div>
-    <div class="tx-form"><label>Transaction hash / TxID<input id="txid" placeholder="Paste your transaction hash"></label><button class="primary" onclick="submitTx()">Submit for verification <span>→</span></button></div>
-    <div id="payMsg" class="msg"></div>
-  </div>
-</section>
+<section id="faq"><div class="container"><div class="title"><h2>FAQ</h2></div><div class="card faq">
+<details><summary>What is GK Mining?</summary><p>Replace this answer with an accurate description of your actual business and services.</p></details>
+<details><summary>How do customers get started?</summary><p>Explain your real registration, verification and onboarding process.</p></details>
+<details><summary>Are returns guaranteed?</summary><p>No investment or mining return should be presented as guaranteed. State the actual risks and terms clearly.</p></details>
+<details><summary>How can I contact support?</summary><p>Add your official email, phone number and business address.</p></details>
+</div></div></section>
 
-<section class="section dashboard">
-  <div class="section-title"><div><div class="eyebrow">ACCOUNT OVERVIEW</div><h2>Your dashboard</h2></div></div>
-  <div class="dash-grid">
-    <div class="dash-main"><div class="dash-head"><span class="avatar">GK</span><div><small>ACCOUNT HOLDER</small><strong id="dName">Not registered</strong></div><span class="status-badge" id="dStatus">Not active</span></div><div class="dash-values"><div><small>SELECTED PLAN</small><b id="dPlan">—</b></div><div><small>PAYMENT STATUS</small><b id="dPayment">Not submitted</b></div><div><small>NETWORK</small><b>BEP20</b></div></div></div>
-    <div class="side-card"><span>Need help?</span><p>Verify your selected amount, network and transaction hash before submitting.</p><a href="#risk">Read disclosure →</a></div>
-  </div>
-</section>
+<section id="contact"><div class="container"><div class="title"><h2>Contact GK Mining</h2><p>Add your official contact details before publishing.</p></div>
+<div class="grid">
+<div class="card"><h3>Email</h3><p>support@gkmining.example</p></div>
+<div class="card"><h3>WhatsApp</h3><p>+91 XXXXX XXXXX</p></div>
+<div class="card"><h3>Business Hours</h3><p>Mon–Sat · 10:00 AM–6:00 PM</p></div>
+</div></div></section>
 
-<section id="how" class="section how">
-  <div class="section-title"><div><div class="eyebrow">PROCESS</div><h2>How it works</h2></div></div>
-  <div class="steps"><div><span>01</span><h3>Register</h3><p>Create your account using your mobile number.</p></div><div><span>02</span><h3>Select</h3><p>Choose $25, $50 or $100 and review the payment details.</p></div><div><span>03</span><h3>Pay & submit</h3><p>Send the selected amount on BEP20 and submit the TxID for verification.</p></div></div>
-</section>
 
-<section id="risk" class="risk section"><div class="risk-icon">!</div><div><div class="eyebrow">RISK & DISCLOSURE</div><h2>Please read before using the platform.</h2><p>Digital assets and mining-related activities involve substantial risk. A payment does not guarantee profit, mining output, or any fixed return. Only use funds you can afford to lose. Verify the wallet address and network before sending. Operators should obtain appropriate legal and regulatory advice before accepting customer funds or offering financial products.</p></div></section>
+<section id="dashboard" class="dash">
+<div class="container">
+<div class="dashhead"><div><h1>Customer Dashboard</h1><p>Demo interface — connect your real account system before production.</p></div><a class="btn outline" href="#login">Logout</a></div>
+<div class="statgrid">
+<div class="stat"><small>Account Balance</small><strong>₹0.00</strong></div>
+<div class="stat"><small>Active Plan</small><strong>—</strong></div>
+<div class="stat"><small>Mining Status</small><strong>Inactive</strong></div>
+<div class="stat"><small>Account ID</small><strong>GK-0001</strong></div>
+</div>
+<div class="table">
+<table><thead><tr><th>Date</th><th>Activity</th><th>Reference</th><th>Status</th></tr></thead>
+<tbody><tr><td>—</td><td>No activity yet</td><td>—</td><td><span class="status">Waiting</span></td></tr></tbody></table>
+</div>
+</div></section>
 
-<footer><div class="footer-logo">GK MINING</div><p>Digital Mining Hub · Transparent payment flow</p><span>© 2026 GK Mining. All rights reserved.</span></footer>
-<script src="script.js"></script>
-</body>
-</html>
+<section id="login" class="auth">
+<div class="authbox">
+<div class="logo" style="margin-bottom:20px"><span class="logo-mark">GK</span> <span>MINING</span></div>
+<h1>Welcome Back</h1><p>Sign in to access your customer dashboard.</p>
+<form onsubmit="event.preventDefault();location.hash='dashboard'">
+<div class="field"><label>Email</label><input type="email" placeholder="you@example.com" required></div>
+<div class="field"><label>Password</label><input type="password" placeholder="••••••••" required></div>
+<button class="btn" type="submit">Login</button>
+</form>
+<div class="switch">New customer? <a href="#register">Create an account</a></div>
+</div></section>
+
+<section id="register" class="auth">
+<div class="authbox">
+<div class="logo" style="margin-bottom:20px"><span class="logo-mark">GK</span> <span>MINING</span></div>
+<h1>Create Account</h1><p>Register for your GK Mining customer account.</p>
+<form onsubmit="event.preventDefault();location.hash='login'">
+<div class="field"><label>Full Name</label><input type="text" placeholder="Your name" required></div>
+<div class="field"><label>Email</label><input type="email" placeholder="you@example.com" required></div>
+<div class="field"><label>Password</label><input type="password" placeholder="Create a password" required></div>
+<button class="btn" type="submit">Create Account</button>
+</form>
+<div class="switch">Already registered? <a href="#login">Login</a></div>
+</div></section>
+
+<footer><div class="container"><div>© 2026 GK Mining. All rights reserved.</div><div style="margin-top:8px">Terms · Privacy · Risk Disclosure</div></div></footer>
+</body></html>
