@@ -1,93 +1,105 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>GK Mining | Plans & Dashboard</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#07111d">
+<title>GK Mining — Digital Mining Hub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header class="nav">
-  <div class="brand">GK <span>MINING</span></div>
-  <a href="#plans">Plans</a>
+<div class="ambient ambient-a"></div><div class="ambient ambient-b"></div>
+
+<nav class="nav">
+  <a class="logo" href="#"><span class="logo-mark">GK</span><span>MINING</span></a>
+  <div class="nav-links"><a href="#plans">Plans</a><a href="#how">How it works</a><a href="#risk">Risk</a></div>
+  <a class="nav-cta" href="#register">Get Started <span>↗</span></a>
+</nav>
+
+<header class="hero">
+  <div class="hero-copy">
+    <div class="pill"><i></i> DIGITAL MINING HUB</div>
+    <h1>Build your digital<br><em>mining journey.</em></h1>
+    <p>Choose a plan, complete your payment on BNB Smart Chain, and submit your transaction reference for verification.</p>
+    <div class="hero-actions"><a class="primary" href="#plans">Explore plans <span>→</span></a><a class="ghost" href="#how">How it works</a></div>
+    <div class="trust-row"><span>✓ BEP20 payments</span><span>✓ Transaction verification</span><span>✓ Mobile friendly</span></div>
+  </div>
+  <div class="hero-card">
+    <div class="card-top"><span>GK MINING</span><b>LIVE PLATFORM</b></div>
+    <div class="orb"><div class="orb-core">GK</div></div>
+    <div class="hero-metrics"><div><small>Plans</small><strong>03</strong></div><div><small>Network</small><strong>BEP20</strong></div><div><small>Status</small><strong>Open</strong></div></div>
+  </div>
 </header>
 
-<main>
-<section class="hero">
-  <div>
-    <p class="eyebrow">GK MINING HUB</p>
-    <h1>Mining plans, made simple.</h1>
-    <p class="muted">Choose a plan, review the payment details, and submit your transaction reference for verification.</p>
-    <a class="btn" href="#register">Create account</a>
-  </div>
-</section>
-
-<section id="register" class="card">
-  <h2>Create your account</h2>
-  <div class="grid two">
-    <label>Name<input id="name" type="text" placeholder="Your name"></label>
-    <label>Mobile number<input id="mobile" type="tel" placeholder="+91 XXXXX XXXXX"></label>
-    <label>Password<input id="password" type="password" placeholder="Create password"></label>
-  </div>
-  <button class="btn" onclick="registerUser()">Register</button>
-  <p id="registerStatus" class="status"></p>
-</section>
-
-<section id="plans">
-  <div class="section-head">
-    <div><p class="eyebrow">PLANS</p><h2>Choose a plan</h2></div>
-    <p class="muted">Payment is shown in USDT on BNB Smart Chain (BEP20).</p>
-  </div>
+<section id="plans" class="section">
+  <div class="section-title"><div><div class="eyebrow">MEMBERSHIP PLANS</div><h2>Choose your plan</h2></div><p>Simple options. Clear payment details.</p></div>
   <div class="plans">
     <article class="plan">
-      <span>STARTER</span><h3>$25</h3><p>Entry plan</p>
-      <button class="btn full" onclick="selectPlan(25)">Select $25</button>
+      <div class="plan-head"><span class="tag">STARTER</span><span class="dot"></span></div>
+      <div class="price"><b>$25</b><small>USDT</small></div><p class="plan-desc">A starting option for exploring the platform.</p>
+      <ul><li>Plan activation review</li><li>BEP20 payment flow</li><li>Transaction reference</li></ul>
+      <button onclick="choose(25)" class="plan-btn">Select Starter <span>→</span></button>
     </article>
     <article class="plan featured">
-      <span>GROWTH</span><h3>$50</h3><p>Growth plan</p>
-      <button class="btn full" onclick="selectPlan(50)">Select $50</button>
+      <div class="popular">POPULAR</div>
+      <div class="plan-head"><span class="tag">GROWTH</span><span class="dot"></span></div>
+      <div class="price"><b>$50</b><small>USDT</small></div><p class="plan-desc">A larger plan option for registered users.</p>
+      <ul><li>Plan activation review</li><li>BEP20 payment flow</li><li>Transaction reference</li></ul>
+      <button onclick="choose(50)" class="plan-btn">Select Growth <span>→</span></button>
     </article>
     <article class="plan">
-      <span>PRO</span><h3>$100</h3><p>Higher plan</p>
-      <button class="btn full" onclick="selectPlan(100)">Select $100</button>
+      <div class="plan-head"><span class="tag">PRO</span><span class="dot"></span></div>
+      <div class="price"><b>$100</b><small>USDT</small></div><p class="plan-desc">A higher-value plan option for users.</p>
+      <ul><li>Plan activation review</li><li>BEP20 payment flow</li><li>Transaction reference</li></ul>
+      <button onclick="choose(100)" class="plan-btn">Select Pro <span>→</span></button>
     </article>
   </div>
 </section>
 
-<section id="payment" class="card payment hidden">
-  <div class="section-head">
-    <div><p class="eyebrow">PAYMENT</p><h2 id="selectedPlan">Selected plan</h2></div>
-    <span class="badge">BEP20</span>
-  </div>
-  <p class="muted">Send only the selected amount of USDT on the BNB Smart Chain (BEP20) network. Verify the address and network before sending.</p>
-  <div class="wallet">
-    <code id="wallet">0x02e63D12a34A533c54a8e022d83ECfdbb988A322</code>
-    <button class="copy" onclick="copyWallet()">Copy</button>
-  </div>
-  <div class="grid two">
-    <label>Transaction / TxID<input id="txid" type="text" placeholder="Paste transaction hash"></label>
-    <label>Payment note (optional)<input id="note" type="text" placeholder="Optional"></label>
-  </div>
-  <button class="btn" onclick="submitPayment()">Submit payment reference</button>
-  <p id="paymentStatus" class="status"></p>
-</section>
-
-<section class="card dashboard">
-  <div class="section-head"><div><p class="eyebrow">DASHBOARD</p><h2>Account status</h2></div></div>
-  <div class="stats">
-    <div><small>Account</small><strong id="dashName">Not registered</strong></div>
-    <div><small>Plan</small><strong id="dashPlan">—</strong></div>
-    <div><small>Payment</small><strong id="dashPayment">Not submitted</strong></div>
+<section id="register" class="section register-wrap">
+  <div class="register-card">
+    <div class="register-intro"><div class="eyebrow">CREATE ACCOUNT</div><h2>Start with your<br>mobile number.</h2><p>Register your details first, then select a plan and submit your payment reference.</p><div class="mini-note">🔒 Your form details stay on this device in this front-end version.</div></div>
+    <div class="form">
+      <label>Full name<input id="name" placeholder="Enter your name"></label>
+      <label>Mobile number<input id="mobile" type="tel" placeholder="+91 XXXXX XXXXX"></label>
+      <label>Password<input id="password" type="password" placeholder="Create a password"></label>
+      <button class="primary full" onclick="register()">Create account <span>→</span></button>
+      <div id="regMsg" class="msg"></div>
+    </div>
   </div>
 </section>
 
-<section class="risk">
-  <h3>Risk & disclosure</h3>
-  <p>Crypto and digital-asset activities involve substantial risk. Payments are not a guarantee of profit, mining output, or any fixed return. Do not commit money you cannot afford to lose. Verify all payment details before sending funds. Review applicable laws and regulatory requirements before using or operating this service.</p>
+<section id="payment" class="section payment-section hidden">
+  <div class="payment-card">
+    <div class="section-title compact"><div><div class="eyebrow">SECURE PAYMENT FLOW</div><h2 id="selectedTitle">$25 Starter</h2></div><span class="network">BNB SMART CHAIN · BEP20</span></div>
+    <div class="payment-grid">
+      <div class="amount-box"><small>SELECTED AMOUNT</small><strong id="amount">$25</strong><span>USDT</span></div>
+      <div class="wallet-box"><div class="wallet-label">SEND USDT TO THIS BEP20 ADDRESS</div><div class="address"><code id="wallet">0x02e63D12a34A533c54a8e022d83ECfdbb988A322</code><button onclick="copyWallet()">COPY</button></div><div class="warning">⚠ Send only on the BEP20 / BNB Smart Chain network. Check the address before confirming.</div></div>
+    </div>
+    <div class="tx-form"><label>Transaction hash / TxID<input id="txid" placeholder="Paste your transaction hash"></label><button class="primary" onclick="submitTx()">Submit for verification <span>→</span></button></div>
+    <div id="payMsg" class="msg"></div>
+  </div>
 </section>
-</main>
 
-<footer>© GK Mining Hub · Demo front-end for plan selection and payment-reference submission.</footer>
+<section class="section dashboard">
+  <div class="section-title"><div><div class="eyebrow">ACCOUNT OVERVIEW</div><h2>Your dashboard</h2></div></div>
+  <div class="dash-grid">
+    <div class="dash-main"><div class="dash-head"><span class="avatar">GK</span><div><small>ACCOUNT HOLDER</small><strong id="dName">Not registered</strong></div><span class="status-badge" id="dStatus">Not active</span></div><div class="dash-values"><div><small>SELECTED PLAN</small><b id="dPlan">—</b></div><div><small>PAYMENT STATUS</small><b id="dPayment">Not submitted</b></div><div><small>NETWORK</small><b>BEP20</b></div></div></div>
+    <div class="side-card"><span>Need help?</span><p>Verify your selected amount, network and transaction hash before submitting.</p><a href="#risk">Read disclosure →</a></div>
+  </div>
+</section>
+
+<section id="how" class="section how">
+  <div class="section-title"><div><div class="eyebrow">PROCESS</div><h2>How it works</h2></div></div>
+  <div class="steps"><div><span>01</span><h3>Register</h3><p>Create your account using your mobile number.</p></div><div><span>02</span><h3>Select</h3><p>Choose $25, $50 or $100 and review the payment details.</p></div><div><span>03</span><h3>Pay & submit</h3><p>Send the selected amount on BEP20 and submit the TxID for verification.</p></div></div>
+</section>
+
+<section id="risk" class="risk section"><div class="risk-icon">!</div><div><div class="eyebrow">RISK & DISCLOSURE</div><h2>Please read before using the platform.</h2><p>Digital assets and mining-related activities involve substantial risk. A payment does not guarantee profit, mining output, or any fixed return. Only use funds you can afford to lose. Verify the wallet address and network before sending. Operators should obtain appropriate legal and regulatory advice before accepting customer funds or offering financial products.</p></div></section>
+
+<footer><div class="footer-logo">GK MINING</div><p>Digital Mining Hub · Transparent payment flow</p><span>© 2026 GK Mining. All rights reserved.</span></footer>
 <script src="script.js"></script>
 </body>
 </html>
